@@ -7,6 +7,8 @@ Hometask #2 | React, Redux
    https://dev.to/admantium/structuring-react-components-n6g
 5. Bonus task: Tables for “List of notes” and “Summary” should use the same table component.
 
+![alt text](https://github.com/AntonKobyshev/radency-hometask-2/blob/main/public/readme_img.JPG?raw=true)
+
 The goal of the task is to let you get better acquainted with React.js and Redux. If you don’t know some of the APIs needed for the task, you might use these resources as references:  
 https://reactjs.org/docs/getting-started.html  
 https://redux.js.org/api/api-reference
