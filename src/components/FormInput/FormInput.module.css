@@ -1,0 +1,14 @@
+.input {
+  --border-color: var(--light-blue);
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  background: white;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
+  --border-color: var(--dark-gray);
+}
