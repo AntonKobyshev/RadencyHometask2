@@ -32,6 +32,16 @@ export interface NotesSlice {
   archived: Note[];
 }
 
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+}
+
 
 const initialState: NotesSlice = {
   active: [
@@ -40,7 +50,7 @@ const initialState: NotesSlice = {
       name: 'Shopping list',
       categoryIndex: 0,
       content: 'Tomatoes, bread',
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
     {
       id: crypto.randomUUID(),
@@ -54,35 +64,35 @@ const initialState: NotesSlice = {
       name: 'New Feature',
       content: 'Implement new feature 3/5/2021, 5/5/2021',
       categoryIndex: 1,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
     {
       id: crypto.randomUUID(),
       name: 'Some idea',
       content: 'Find solution',
       categoryIndex: 2,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
     {
       id: crypto.randomUUID(),
       name: 'Plan weekend trip',
       content: 'Write weekend trip',
       categoryIndex: 0,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
      {
       id: crypto.randomUUID(),
       name: 'Changes',
       content: 'Change something in your life',
       categoryIndex: 1,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
       {
       id: crypto.randomUUID(),
       name: 'Running',
       content: 'Run 10km in 45min',
       categoryIndex: 1,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
   ],
   archived: [
@@ -91,14 +101,14 @@ const initialState: NotesSlice = {
       name: 'Books',
       content: 'Read 10 new books till the end of the year',
       categoryIndex: 1,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
     {
       id: crypto.randomUUID(),
       name: 'Appointment',
       content: 'Go to the appointment with Sara 20/10/2023',
       categoryIndex: 2,
-      createdDate: new Date().toLocaleDateString(),
+      createdDate: formatDate(new Date().toLocaleDateString()),
     },
   ],
 };

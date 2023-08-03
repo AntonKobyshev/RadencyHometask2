@@ -6,6 +6,15 @@ import { Note } from "../../redux/slices/notes";
 import { useAppDispatch } from "../../redux/hooks";
 import { add, update } from "../../redux/slices/notes";
 
+function formatDate(date: Date) {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
+
 const NoteFormProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const dispatch = useAppDispatch();
   const [note, setNote] = useState<undefined | null | Note>();
@@ -44,7 +53,7 @@ const NoteFormProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
                 dispatch(
                   add({
                     ...noteUpdate,
-                    createdDate: new Date().toLocaleDateString(),
+                    createdDate: formatDate(new Date()),
                   })
                 );
               } else {
