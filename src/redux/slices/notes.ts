@@ -2,6 +2,17 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import deleteIfFound from '../../utils/deleteIfFound';
 
+import { Action } from '@reduxjs/toolkit';
+import { ThunkAction } from 'redux-thunk';
+
+
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
+
 export interface Note {
   id: string;
   name: string;
@@ -21,57 +32,71 @@ export interface NotesSlice {
   archived: Note[];
 }
 
+
 const initialState: NotesSlice = {
   active: [
     {
       id: crypto.randomUUID(),
-      name: 'Shopping',
+      name: 'Shopping list',
       categoryIndex: 0,
-      content: 'Go shopping on 02/03/2022 or 05.03.2022.',
+      content: 'Tomatoes, bread',
       createdDate: new Date().toLocaleDateString(),
     },
     {
       id: crypto.randomUUID(),
-      name: 'Dantist appointment',
+      name: 'The theory of evolution',
       categoryIndex: 0,
-      content: `I’m gonna have a dentist appointment on the 3/5/2021,
-I moved it from 5/5/2021`,
+      content: `The evolution theory learn`,
       createdDate: new Date().toLocaleDateString(),
     },
     {
       id: crypto.randomUUID(),
-      name: 'Note #3',
-      content: 'Content of the note #2',
+      name: 'New Feature',
+      content: 'Implement new feature 3/5/2021, 5/5/2021',
       categoryIndex: 1,
       createdDate: new Date().toLocaleDateString(),
     },
     {
       id: crypto.randomUUID(),
-      name: 'Note #4',
-      content: 'Content of the note #4',
+      name: 'Some idea',
+      content: 'Find solution',
       categoryIndex: 2,
       createdDate: new Date().toLocaleDateString(),
     },
     {
       id: crypto.randomUUID(),
-      name: 'Note #5',
-      content: 'Content of the note #5',
+      name: 'Plan weekend trip',
+      content: 'Write weekend trip',
       categoryIndex: 0,
+      createdDate: new Date().toLocaleDateString(),
+    },
+     {
+      id: crypto.randomUUID(),
+      name: 'Changes',
+      content: 'Change something in your life',
+      categoryIndex: 1,
+      createdDate: new Date().toLocaleDateString(),
+    },
+      {
+      id: crypto.randomUUID(),
+      name: 'Running',
+      content: 'Run 10km in 45min',
+      categoryIndex: 1,
       createdDate: new Date().toLocaleDateString(),
     },
   ],
   archived: [
     {
       id: crypto.randomUUID(),
-      name: 'Note #6',
-      content: 'Content of the note #6',
+      name: 'Books',
+      content: 'Read 10 new books till the end of the year',
       categoryIndex: 1,
       createdDate: new Date().toLocaleDateString(),
     },
     {
       id: crypto.randomUUID(),
-      name: 'Note #7',
-      content: 'Content of the note #7',
+      name: 'Appointment',
+      content: 'Go to the appointment with Sara 20/10/2023',
       categoryIndex: 2,
       createdDate: new Date().toLocaleDateString(),
     },
@@ -96,6 +121,7 @@ function deleteNote(state: NotesSlice, noteId: Note['id']) {
   deleteIfFound(state.active, noteHasNeededId) ||
     deleteIfFound(state.archived, noteHasNeededId);
 }
+
 
 export const notesSlice = createSlice({
   name: 'notes',
@@ -143,3 +169,12 @@ export const selectActiveNotes = (state: RootState) => state.notes.active;
 export const selectArchivedNotes = (state: RootState) => state.notes.archived;
 
 export default notesSlice.reducer;
+
+export const removeAllNotes = (): AppThunk => (dispatch, getState) => {
+  const allNotes = [...getState().notes.active, ...getState().notes.archived];
+  const allNoteIds = allNotes.map((note) => note.id);
+
+  allNoteIds.forEach((noteId) => {
+    dispatch(remove(noteId));
+  });
+};
