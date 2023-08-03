@@ -1,8 +1,4 @@
-.light * {
-    fill: white;
-}
-
-.delete_button, .light:hover {
+.edit_button {
     background: none;
     background-size: cover;
     padding: 0;
@@ -13,6 +9,6 @@
     cursor: pointer;
 }
 
-.delete_button:hover, .light:hover {
+.edit_button:hover {
     transform: scale(1.15);
 }

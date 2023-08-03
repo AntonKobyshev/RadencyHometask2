@@ -1,3 +1,18 @@
 .light * {
-    fill: white;
+  fill: white;
+}
+
+.archive_button, .light:hover {
+  background: none;
+  background-size: cover;
+  padding: 0;
+  border: none;
+  height: 32px;
+  width: 100%;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.archive_button:hover, .light:hover {
+  transform: scale(1.15);
 }

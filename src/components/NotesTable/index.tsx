@@ -13,7 +13,6 @@ import DeleteButton from "../DeleteButton";
 import NoteRow from "./NoteRow";
 import styles from "./NotesTable.module.css";
 
-
 const NotesTable: React.FC = () => {
   const [showArchived, setShowArchived] = useState(false);
   const dispatch = useAppDispatch();

@@ -17,7 +17,8 @@ const ArchiveButton: React.FC<ArchiveButtonProps> = ({
 }) => {
   const IconComponent =
     variant === "archive" ? ArchiveIcon : RemoveFromArchiveIcon;
-  const iconClassName = light ? styles.light : "";
+  const iconClassName = light ? styles.light : styles.archive_button || "";
+
 
   return (
     <IconButton {...buttonProps}>

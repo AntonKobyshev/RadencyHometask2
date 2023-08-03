@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../TableCell/TableCell.module.css';
+import styles from '../TableHeaderCell/TableHeaderCell.module.css';
 
 const TableHeaderCell: React.FC<
   React.ThHTMLAttributes<HTMLTableCellElement> & React.PropsWithChildren
