@@ -11,5 +11,5 @@ export const Primary: ComponentStory<typeof CreateNoteButton> = (args) => (
   <CreateNoteButton {...args} />
 );
 Primary.args = {
-  children: 'Push me',
+  children: 'Main button',
 };
