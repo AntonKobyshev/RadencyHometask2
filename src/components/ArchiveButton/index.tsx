@@ -2,7 +2,6 @@ import React from "react";
 import IconButton from "../IconButton";
 import { ReactComponent as ArchiveIcon } from "./add_archive_icon.svg";
 import { ReactComponent as RemoveFromArchiveIcon } from "./remove_from_archive_icon.svg";
-import styles from "./ArchiveButton.module.css";
 
 export interface ArchiveButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -17,7 +16,7 @@ const ArchiveButton: React.FC<ArchiveButtonProps> = ({
 }) => {
   const IconComponent =
     variant === "archive" ? ArchiveIcon : RemoveFromArchiveIcon;
-  const iconClassName = light ? styles.light : styles.archive_button || "";
+  const iconClassName = light ? 'fill-white' : '';
 
 
   return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import Root from './layouts';
 import useNoteForm from './hooks/useNoteForm';

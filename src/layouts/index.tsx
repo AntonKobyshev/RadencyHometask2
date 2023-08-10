@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './Root.module.css';
 
 const Root: React.FC<React.PropsWithChildren> = ({ children }) => {
-  return <div className={styles.root}>{children}</div>;
+  return <div className="max-w-5xl mx-auto my-8 space-y-6">{children}</div>;
 };
 
 export default Root;
