@@ -1,4 +1,3 @@
-import './App.css';
 import Root from './layouts';
 import useNoteForm from './hooks/useNoteForm';
 import NotesTable from './components/NotesTable';

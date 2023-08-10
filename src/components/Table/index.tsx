@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Table.module.css";
+import ClassList from '../../utils/classList';
 
 export interface TableProps
   extends React.TableHTMLAttributes<HTMLTableElement>,
@@ -13,8 +13,14 @@ const Table: React.FC<TableProps> = ({
   className,
   ...props
 }) => {
+  const tableStyles: React.CSSProperties = {
+    width: "100%",
+    borderCollapse: "separate",
+    borderSpacing: "0 10px",
+  };
+
   return (
-    <table {...props} className={className + " " + styles.table}>
+    <table {...props} style={tableStyles} className={new ClassList(className).compose()}>
       <thead>{head}</thead>
       <tbody>{children}</tbody>
     </table>

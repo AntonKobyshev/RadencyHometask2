@@ -16,7 +16,7 @@ const ArchiveButton: React.FC<ArchiveButtonProps> = ({
 }) => {
   const IconComponent =
     variant === "archive" ? ArchiveIcon : RemoveFromArchiveIcon;
-  const iconClassName = light ? 'fill-white' : '';
+  const iconClassName = light ? 'transition duration-200 ease-in-out fill-white hover:scale-150' : 'transition duration-200 ease-in-out hover:scale-150';
 
 
   return (

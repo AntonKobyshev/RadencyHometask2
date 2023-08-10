@@ -1,10 +1,18 @@
 import React from 'react';
-import styles from '../TableHeaderCell/TableHeaderCell.module.css';
+import ClassList from '../../utils/classList';
 
 const TableHeaderCell: React.FC<
   React.ThHTMLAttributes<HTMLTableCellElement> & React.PropsWithChildren
-> = (props) => {
-  return <th {...props} className={styles.cell} />;
+> = ({ className = '', ...props }) => {
+  return (
+    <th
+      {...props}
+      className={new ClassList(
+        'text-ellipsis text-left overflow-hidden whitespace-nowrap px-3 py-1  ',
+        className
+      ).compose()}
+    />
+  );
 };
 
 export default TableHeaderCell;

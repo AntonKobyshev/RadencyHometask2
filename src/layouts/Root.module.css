@@ -1,8 +1,0 @@
-.root {
-    margin: 32px auto;
-    max-width: 1080px;
-}
-
-.root>* {
-    margin-bottom: 16px;
-}

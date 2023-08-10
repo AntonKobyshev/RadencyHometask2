@@ -1,8 +1,0 @@
-.cell {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: left;
-    padding: 8px;
-    height: 36px;
-}

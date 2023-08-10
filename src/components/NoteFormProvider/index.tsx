@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NoteFormContext from "./NoteFormContext";
 import NoteForm from "./NoteForm";
-import styles from "./NoteFormProvider.module.css";
 import { Note } from "../../redux/slices/notes";
 import { useAppDispatch } from "../../redux/hooks";
 import { add, update } from "../../redux/slices/notes";
@@ -27,7 +26,7 @@ const NoteFormProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       {note !== undefined && (
         <>
           <button
-            className={styles.formBackground}
+            className="fixed inset-0 bg-black opacity-80"
             onClick={() => setNote(undefined)}
           />
           <NoteForm

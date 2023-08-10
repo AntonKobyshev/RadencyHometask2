@@ -40,7 +40,7 @@ const CategorySummaryRow: FC<CategorySummaryRowProps> = ({ categoryIndex }) => {
       <TableCell>
         <CategoryIcon url={category.iconUrl} />
       </TableCell>
-      <TableCell>{category.name}</TableCell>
+      <TableCell className="font-bold">{category.name}</TableCell>
       <TableCell>{memoizedCounts.activeNotesNumber}</TableCell>
       <TableCell>{memoizedCounts.archivedNotesNumber}</TableCell>
     </TableRow>

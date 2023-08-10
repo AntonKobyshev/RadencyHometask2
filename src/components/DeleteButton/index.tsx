@@ -1,7 +1,6 @@
 import React from "react";
 import IconButton from "../IconButton";
 import { ReactComponent as DeleteIcon } from "./delete_button_icon.svg";
-import styles from "./DeleteButton.module.css";
 
 interface DeleteButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,7 +11,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({
   light,
   ...buttonProps
 }) => {
-  const iconClassName = light ? styles.light : styles.delete_button || "";
+  const iconClassName = light ? 'fill-white transition duration-200 ease-in-out hover:scale-150' : 'transition duration-200 ease-in-out hover:scale-150';
 
   return (
     <IconButton {...buttonProps}>
